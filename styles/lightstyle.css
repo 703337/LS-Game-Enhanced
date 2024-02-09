@@ -6,8 +6,10 @@ body {
 }
 
 header {
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    background-color: black;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: white;
     margin-bottom: 0;
     margin-top: 0;
     padding: 10px;
@@ -26,7 +28,7 @@ h1, h2 {
 /* Interactive Elements */
 button {
    background-color: rgb(175, 175, 175);
-   border: 2px solid rgb(175, 175, 175);
+   border: 3px solid rgb(175, 175, 175);
    border-top: none;
    color: black;
    margin: 5px;
@@ -35,8 +37,8 @@ button {
 }
 
 button.main {
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     margin-top: 0;
     width: 100px;
 }
