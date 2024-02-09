@@ -1,28 +1,33 @@
 /* Modify elements for smaller screens with the below classes */
-@media (max-width: 544px) {
+@media (max-width: 532px) {
     .fullSpan {
         width: 100%;
+        border: none;
         border-radius: 0;
         padding-left: 0;
         padding-right: 0;
-        transition: all 0.3s;
     }
-}
-
-@media (max-width: 544px) {
+    header.fullSpan {
+        background-color: black;
+        color: white;
+    }
     nav.fullSpan {
         background-color: rgb(175, 175, 175);
-        width: 100%;
         padding: 0;
         transition: all 0.3s;
     }
-}
-
-@media (max-width: 544px) {
+    /* button.main */
     button.main {
+        background-color: rgb(175, 175, 175);
         border: none;
         border-radius: 0;
         margin: 0;
         width: 105px;
+    }
+    button.main:hover {
+        background-color: rgb(175, 175, 175);
+    }
+    button.main:active {
+        background-color: rgb(220, 220, 220);
     }
 }

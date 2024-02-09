@@ -6,18 +6,24 @@ body {
 }
 
 header {
-    background-color: black;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    color: white;
+    border-top: none;
     margin-bottom: 0;
     margin-top: 0;
-    padding: 10px;
-    width: 80vw;
 }
 
 header, main {
+    border: 6px solid black;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     text-align: center;
+    width: 500px;
+    padding: 10px;
+    transition: all 0.3s;
+}
+
+main {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 /* Visual Elements */
@@ -27,10 +33,11 @@ h1, h2 {
 
 /* Interactive Elements */
 button {
-   background-color: rgb(175, 175, 175);
-   border: 3px solid rgb(175, 175, 175);
+   background-color: rgb(240, 240, 240);
+   border: 3px solid black;
    border-top: none;
    color: black;
+   cursor: pointer;
    margin: 5px;
    padding: 2.5px;
    transition: all 0.3s;
@@ -44,12 +51,15 @@ button.main {
 }
 
 button:hover {
-    background-color: rgb(240, 240, 240);
-    color: rgb(20, 20, 20);
+    background-color: rgb(200, 200, 200);
 }
 
 button:active {
-    background-color: rgb(215, 215, 215);
-    color: rgb(20, 20, 20);
+    background-color: rgb(230, 230, 230);
     transition: none;
 }
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
