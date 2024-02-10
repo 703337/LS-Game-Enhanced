@@ -1,0 +1,4 @@
+ - This is an enhanced version of LS Game, which was originally made in 2022.
+ - This version is being made due to the mess that was the original's code and because I have learnt a lot since then.
+ - I attempted to remake LS Game in 2023 that was quickly abandoned due to the amount of schoolwork I had to do and my inability to sleep properly after coding.
+ - Fortunately, not too much time was wasted, as I had only just coded the initial menus and some sounds.
