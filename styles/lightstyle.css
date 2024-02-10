@@ -102,8 +102,9 @@ select {
    cursor: pointer;
    margin: 5px;
    padding: 2.5px;
+   text-align: center;
    transition: all 0.3s;
-   width: 100px;
+   width: 125px;
 }
 select:hover {
     background-color: rgb(215, 215, 215);
