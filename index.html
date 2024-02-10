@@ -37,20 +37,54 @@
     <!-- Navigation Buttons -->
     <nav class="fullSpan" align="center">
         <div style="display: inline-block;">
-            <button class="main">Characters</button>
-            <button class="main">Clothing</button>
+            <button id="MainBtn1" class="main">Characters</button>
+            <button id="MainBtn2" class="main">Clothing</button>
         </div>
         <div style="display: inline-block;">
-            <button class="main">Weapons</button>
-            <button class="main">Start</button>
+            <button id="MainBtn3" class="main">Weapons</button>
+            <button id="MainBtn4" class="main">Start</button>
         </div>
     </nav>
 
     <!-- Main Content -->
     <div align="center">
         <main class="fullSpan">
-            <h2 id="MenuHeader">Nothing</h2>
-            <p id="MenuDescription">'Cause there's no menus for now.</p>
+            <!-- Name and description of current menu -->
+            <article>
+                <h2 id="MenuHeader">Character Menu Mockup</h2>
+                <p id="MenuDescription">A mockup for the character menu.</p>
+            </article>
+
+            <br>
+
+            <!-- Buttons to change submenu -->
+            <article id="SubMenuBtns">
+                <select name="characters" id="CharSelector">
+                    <option value="citizen">Citizen</option>
+                    <option value="thief">Thief</option>
+                    <option value="chef">Chef</option>
+                    <option value="b47ry-h3d">B47RY-H3D</option>
+                </select>
+            </article>
+
+            <br>
+
+            <!-- Menu Content -->
+            <article id="MenuContent">
+                <h3>Base Stats:</h3>
+                <p>Health: Imagine a list</p>
+                <p>Damage: of stats</p>
+                <p>Dodge Chance: here.</p>
+                <h3>Curse: Curse Name</h3>
+                <p>Imagine a curse description here.</p>
+            </article>
+
+            <br>
+
+            <!-- Buttons to interact with menu -->
+            <article id="InteractBtns">
+                <button>Select</button>
+            </article>
         </main>
     </div>
 
