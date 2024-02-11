@@ -8,14 +8,13 @@ body {
     font-family: 'Fira Sans', sans-serif;
 }
 
-/* Header and Main Styles */
+/* Header, Main, and Footer Styles */
 header {
-    border-top: none;
     margin-bottom: 0;
     margin-top: 0;
 }
 
-header, main {
+header, main, footer {
     border: 6px solid black;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -28,6 +27,12 @@ header, main {
 main {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+}
+
+footer {
+    border-top: none;
+    width: 400px;
+    padding: 10px;
 }
 
 /* --------------- */

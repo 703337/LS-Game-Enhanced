@@ -11,6 +11,9 @@
         background-color: black;
         color: white;
     }
+    footer.fullSpan {
+        background-color: rgb(175, 175, 175);
+    }
     nav.fullSpan {
         background-color: rgb(175, 175, 175);
         padding: 0;
