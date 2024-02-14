@@ -1,3 +1,4 @@
+// All code for the buttons in the Nav elements goes here
 // Ensure no code is run until the webpage has finished loading
 $(function(){
     //
