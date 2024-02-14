@@ -35,8 +35,8 @@ $(document).on("change", "#CharSelector", function(){
                 '<p>Heal more from blocking but lose the ability to block more than once in a row.</p>'
             );
             break;
-        // Display 847RY-H3D Stats
-        case "847ry-h3d":
+        // Display B47RY-H3D Stats
+        case "b47ry-h3d":
             $("#MenuContent").html(
                 '<h3>Base Stats:</h3>'+
                 '<p><b>Health:</b> 90</p>'+
