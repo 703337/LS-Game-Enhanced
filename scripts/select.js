@@ -2,6 +2,7 @@
 // Character Selection
 $("#CharSelector").change(function(){
     switch ($("#CharSelector").val()) {
+        // Display Citizen Stats
         case "citizen":
             $("#MenuContent").html(
                 '<h3>Base Stats:</h3>'+
@@ -12,6 +13,7 @@ $("#CharSelector").change(function(){
                 '<p>Take a small amount of damage when missing.</p>'
             );
             break;
+        // Displat Thief Stats
         case "thief":
             $("#MenuContent").html(
                 '<h3>Stats Not Set</h3>'
