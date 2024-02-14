@@ -42,7 +42,7 @@ $(document).on("change", "#CharSelector", function(){
                 '<p><b>Health:</b> 90</p>'+
                 '<p><b>Damage:</b> 15</p>'+
                 '<p><b>Dodge Chance:</b> 2%</p>'+
-                '<h3>Curse: Overstuffed</h3>'+
+                '<h3>Curse: Instability</h3>'+
                 '<p>Slowly increase damage and damage reduction when not blocking but begin taking increasing damage after 4 turns.</p>'
             );
             break;
