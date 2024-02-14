@@ -1,6 +1,6 @@
 // All code for Select elements goes here
 // Character Selection
-$("#CharSelector").change(function(){
+$(document).on("change", "#CharSelector", function(){
     switch ($("#CharSelector").val()) {
         // Display Citizen Stats
         case "citizen":
