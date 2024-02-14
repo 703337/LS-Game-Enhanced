@@ -13,8 +13,20 @@ $(document).on("change", "#CharSelector", function(){
                 '<p>Take a small amount of damage when missing.</p>'
             );
             break;
-        // Displat Thief Stats
+        // Display Thief Stats
         case "thief":
+            $("#MenuContent").html(
+                '<h3>Stats Not Set</h3>'
+            );
+            break;
+        // Display Chef Stats
+        case "chef":
+            $("#MenuContent").html(
+                '<h3>Stats Not Set</h3>'
+            );
+            break;
+        // Display 847RY-H3D Stats
+        case "847ry-h3d":
             $("#MenuContent").html(
                 '<h3>Stats Not Set</h3>'
             );

@@ -13,7 +13,7 @@ $(function(){
                 // Set #MenuHeader and #MenuDescription Content
                 $("#MenuHeader").html('Characters');
                 $("#MenuDescription").html('Use the dropdown to view a character\'s stats. The \'Select\' button can be used to pick the currently displayed class.');
-                // Set #SubM;enuBtns
+                // Set #SubMenuBtns
                 $("#SubMenuBtns").html(
                     '<select name="characters" id="CharSelector">'+
                     '<option value="citizen">Citizen</option>'+
