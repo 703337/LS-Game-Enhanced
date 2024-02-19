@@ -83,6 +83,10 @@ $(function(){
                     '<option value="Fists">Fists</option>'+
                     '<option value="Pocket Knife">Pocket Knife</option>'+
                     '<option value="Cleaver">Cleaver</option>'+
+                    '<option value="Butter Knife">ButterKnife</option>'+
+                    '<option value="Fists">Fists</option>'+
+                    '<option value="Pocket Knife">Pocket Knife</option>'+
+                    '<option value="Cleaver">Cleaver</option>'+
                     '<option value="Butter Knife">Butter Knife</option>'+
                     '</select>'
                 );
