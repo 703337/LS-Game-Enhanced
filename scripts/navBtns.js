@@ -1,14 +1,11 @@
 // All code for the buttons in the Nav elements goes here
 // Ensure no code is run until the webpage has finished loading
 $(function(){
-    //
-    // Pre-Save Data Behaviour
-    //
-
     // Behaviour for #MainBtn1
     $("#MainBtn1").click(function(){
         // Check current intended behaviour for #MainBtn1 by checking current HTML content
         switch ($("#MainBtn1").html()){
+            // Character Selection Menu
             case "Characters":
                 // Set #MenuHeader and #MenuDescription Content
                 $("#MenuHeader").html('Characters');
@@ -16,10 +13,10 @@ $(function(){
                 // Set #SubMenuBtns
                 $("#SubMenuBtns").html(
                     '<select name="characters" id="CharSelector">'+
-                    '<option value="citizen">Citizen</option>'+
-                    '<option value="thief">Thief</option>'+
-                    '<option value="chef">Chef</option>'+
-                    '<option value="b47ry-h3d">B47RY-H3D</option>'+
+                    '<option value="Citizen">Citizen</option>'+
+                    '<option value="Thief">Thief</option>'+
+                    '<option value="Chef">Chef</option>'+
+                    '<option value="B47RY-H3D">B47RY-H3D</option>'+
                     '</select>'
                 );
                 // Set #MenuContent
@@ -43,17 +40,18 @@ $(function(){
     $("#MainBtn2").click(function(){
         // Check current intended behaviour for #MainBtn2 by checking current HTML content
         switch ($("#MainBtn2").html()){
+            // Clothing Selection Menu
             case "Clothing":
                 // Set #MenuHeader and #MenuDescription Content
                 $("#MenuHeader").html('Clothing');
                 $("#MenuDescription").html('Use the dropdown to view an item of clothing\'s stats. The \'Select\' button can be used to pick the currently displayed clothing.');
                 // Set #SubMenuBtns
                 $("#SubMenuBtns").html(
-                    '<select name="clothing" id="ClothingSelector">'+
-                    '<option value="nude">Nude</option>'+
-                    '<option value="thievesCloak">Thieves\' Cloak</option>'+
-                    '<option value="chefswear">Chefswear</option>'+
-                    '<option value="shockPlating">Shock Plating</option>'+
+                    '<select name="clothing" id="ClothSelector">'+
+                    '<option value="Nude">Nude</option>'+
+                    '<option value="Thieves\' Cloak">Thieves\' Cloak</option>'+
+                    '<option value="Chefswear">Chefswear</option>'+
+                    '<option value="Shock Plating">Shock Plating</option>'+
                     '</select>'
                 );
                 // Set #MenuContent
@@ -74,6 +72,7 @@ $(function(){
     $("#MainBtn3").click(function(){
         // Check current intended behaviour for #MainBtn3 by checking current HTML content
         switch ($("#MainBtn3").html()){
+            // Weapon Selection Menu
             case "Weapons":
                 // Set #MenuHeader and #MenuDescription Content
                 $("#MenuHeader").html('Weapons');
@@ -81,10 +80,10 @@ $(function(){
                 // Set #SubMenuBtns
                 $("#SubMenuBtns").html(
                     '<select name="weapons" id="WeapSelector">'+
-                    '<option value="fists">Fists</option>'+
-                    '<option value="pocketKnife">Pocket Knife</option>'+
-                    '<option value="cleaver">Cleaver</option>'+
-                    '<option value="butterKnife">ButterKnife</option>'+
+                    '<option value="Fists">Fists</option>'+
+                    '<option value="Pocket Knife">Pocket Knife</option>'+
+                    '<option value="Cleaver">Cleaver</option>'+
+                    '<option value="Butter Knife">Butter Knife</option>'+
                     '</select>'
                 );
                 // Set #MenuContent
@@ -107,6 +106,7 @@ $(function(){
     $("#MainBtn4").click(function(){
         // Check current intended behaviour for #MainBtn4 by checking current HTML content
         switch ($("#MainBtn4").html()){
+            // Start Menu
             case "Start":
                 // Set #MenuHeader and #MenuDescription Content
                 $("#MenuHeader").html('Start');
@@ -114,17 +114,27 @@ $(function(){
                 // Set #SubMenuBtns
                 $("#SubMenuBtns").html(
                     '<select name="info" id="InfoSelector">'+
-                    '<option value="selections">Selections</option>'+
-                    '<option value="baseStats">Base Stats</option>'+
+                    '<option value="Selections">Selections</option>'+
+                    '<option value="Base Stats">Base Stats</option>'+
                     '</select>'
                 );
                 // Set #MenuContent
                 $("#MenuContent").html(
                     '<h3>Current Selection:</h3>'+
-                    '<p><b>Character:</b> Variable Doesn\'t Exist</p>'+
-                    '<p><b>Clothing:</b> Variable Doesn\'t Exist</p>'+
-                    '<p><b>Weapon:</b> Variable Doesn\'t Exist</p>'
+                    '<p id="ChosenChar"><b>Character:</b> ' + player.char.name + '</p>'+
+                    '<p id="ChosenCloth"><b>Clothing:</b> ' + player.cloth.name + '</p>'+
+                    '<p id="ChosenWeap"><b>Weapon:</b> ' + player.weap.name + '</p>'
                 );
+                // Ensure secret character does not display
+                if (player.char.name == "NULL") {
+                    $("#ChosenChar").html("<b>Character:</b> -");
+                }
+                if (player.cloth.name == "Whitespace") {
+                    $("#ChosenCloth").html("<b>Clothing:</b> -");
+                }
+                if (player.weap.name == "Maw") {
+                    $("#ChosenWeap").html("<b>Weapon:</b> -");
+                }
                 // Set #InteractBtns
                 $("#InteractBtns").html(
                     '<button id="StartBtn">Start</button>'
