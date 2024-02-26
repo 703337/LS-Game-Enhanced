@@ -171,12 +171,12 @@ $(document).on("change", "#InfoSelector", function(){
                 '<p><b>Health:</b> ' + player.char.healthMax + '</p>'+
                 '<p><b>Damage Reduction:</b> ' + player.cloth.damageReduction * 100 + '%</p>'+
                 '<p><b>Damage:</b> ' + player.char.damage * player.weap.damageMult + '</p>'+
-                '<p><b>Mirror Damage:</b> ' + player.cloth.mirrorDamageMult * 100 + '</p>'+
-                '<p><b>Dodge Chance:</b> ' + player.char.dodgeChance * 100 * player.cloth.dodgeChanceMult * player.weap.dodgeChanceMult + '%</p>'+
-                '<p><b>Hit Chance:</b> ' + player.weap.hitChance * 100 + '%</p>'+
-                '<p><b>Multi Hit Chance:</b> ' + player.cloth.multiHitChance * 100 + '%</p>'+
-                '<p><b>Crit Chance:</b> ' + player.weap.critChance * 100 + '%</p>'+
-                '<p><b>Bleed Chance:</b> ' + player.weap.bleedChance * 100 + '%</p>'
+                '<p><b>Mirror Damage:</b> ' + player.cloth.mirrorDamageMult * 100 + '%</p>'+
+                '<p><b>Dodge Chance:</b> ' + player.char.dodgeChance * player.cloth.dodgeChanceMult * player.weap.dodgeChanceMult + '%</p>'+
+                '<p><b>Hit Chance:</b> ' + player.weap.hitChance + '%</p>'+
+                '<p><b>Multi Hit Chance:</b> ' + player.cloth.multiHitChance + '%</p>'+
+                '<p><b>Crit Chance:</b> ' + player.weap.critChance + '%</p>'+
+                '<p><b>Bleed Chance:</b> ' + player.weap.bleedChance + '%</p>'
             );
             break;
     }

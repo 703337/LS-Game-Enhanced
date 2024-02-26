@@ -23,7 +23,7 @@ $(function(){
                 $("#MenuContent").html(
                     '<h3>Base Stats:</h3>'+
                     '<p><b>Health:</b> 100</p>'+
-                    '<p><b>Damage:</b> 15</p>'+
+                    '<p><b>Damage:</b> 10</p>'+
                     '<p><b>Dodge Chance:</b> 5%</p>'+
                     '<h3>Curse: Painfully Average</h3>'+
                     '<p>Take a small amount of damage when missing.</p>'
@@ -80,10 +80,6 @@ $(function(){
                 // Set #SubMenuBtns
                 $("#SubMenuBtns").html(
                     '<select name="weapons" id="WeapSelector">'+
-                    '<option value="Fists">Fists</option>'+
-                    '<option value="Pocket Knife">Pocket Knife</option>'+
-                    '<option value="Cleaver">Cleaver</option>'+
-                    '<option value="Butter Knife">ButterKnife</option>'+
                     '<option value="Fists">Fists</option>'+
                     '<option value="Pocket Knife">Pocket Knife</option>'+
                     '<option value="Cleaver">Cleaver</option>'+
