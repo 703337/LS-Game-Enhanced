@@ -171,13 +171,131 @@ $(document).on("change", "#InfoSelector", function(){
                 '<p><b>Health:</b> ' + player.char.healthMax + '</p>'+
                 '<p><b>Damage Reduction:</b> ' + player.cloth.damageReduction * 100 + '%</p>'+
                 '<p><b>Damage:</b> ' + player.char.damage * player.weap.damageMult + '</p>'+
-                '<p><b>Mirror Damage:</b> ' + player.cloth.mirrorDamageMult * 100 + '</p>'+
-                '<p><b>Dodge Chance:</b> ' + player.char.dodgeChance * 100 * player.cloth.dodgeChanceMult * player.weap.dodgeChanceMult + '%</p>'+
-                '<p><b>Hit Chance:</b> ' + player.weap.hitChance * 100 + '%</p>'+
-                '<p><b>Multi Hit Chance:</b> ' + player.cloth.multiHitChance * 100 + '%</p>'+
-                '<p><b>Crit Chance:</b> ' + player.weap.critChance * 100 + '%</p>'+
-                '<p><b>Bleed Chance:</b> ' + player.weap.bleedChance * 100 + '%</p>'
+                '<p id="MD"><b>Mirror Damage:</b> ' + player.cloth.mirrorDamageMult * 100 + '%</p>'+
+                '<p><b>Dodge Chance:</b> ' + player.char.dodgeChance * player.cloth.dodgeChanceMult * player.weap.dodgeChanceMult + '%</p>'+
+                '<p><b>Hit Chance:</b> ' + player.weap.hitChance + '%</p>'+
+                '<p id="MHC"><b>Multi Hit Chance:</b> ' + player.cloth.multiHitChance + '%</p>'+
+                '<p id="SHC"><b>Soul Hit Chance:</b> ' + player.weap.soulHitChance + '%</p>'+
+                '<p><b>Crit Chance:</b> ' + player.weap.critChance + '%</p>'+
+                '<p id="SCC"><b>Soul Crit Chance:</b> ' + player.weap.soulCritChance + '%</p>'+
+                '<p id="BC"><b>Bleed Chance:</b> ' + player.weap.bleedChance + '%</p>'+
+                '<p id="SC"><b>Stun Chance:</b> ' + player.weap.stunChance + '%</p>'
+            );
+            // Remove Stats That Are 0
+            if (player.cloth.mirrorDamageMult == 0) {$("#MD").hide();}
+            if (player.cloth.multiHitChance == 0) {$("#MHC").hide();}
+            if (player.weap.soulHitChance == 0) {$("#SHC").hide();}
+            if (player.weap.soulCritChance == 0) {$("#SCC").hide();}
+            if (player.weap.bleedChance == 0) {$("#BC").hide();}
+            if (player.weap.stunChance == 0) {$("#SC").hide();}
+            break;
+    }
+});
+
+// Stats Menu
+$(document).on("change", "#StatView", function(){
+    switch ($("#StatView").val()) {
+        case "All":
+            // Show All Stats
+            $("#MenuContent").html(
+                '<h3>Stats:</h3>'+
+                '<p><b>Health:</b> ' + player.char.healthMax + '</p>'+
+                '<p id="DR"><b>Damage Reduction:</b> ' + player.cloth.damageReduction * 100 + '%</p>'+
+                '<p><b>Damage:</b> ' + player.char.damage * player.weap.damageMult + '</p>'+
+                '<p id="MD"><b>Mirror Damage:</b> ' + player.cloth.mirrorDamageMult * 100 + '%</p>'+
+                '<p><b>Dodge Chance:</b> ' + player.char.dodgeChance * player.cloth.dodgeChanceMult * player.weap.dodgeChanceMult + '%</p>'+
+                '<p><b>Hit Chance:</b> ' + player.weap.hitChance + '%</p>'+
+                '<p id="MHC"><b>Multi Hit Chance:</b> ' + player.cloth.multiHitChance + '%</p>'+
+                '<p id="SHC"><b>Soul Hit Chance:</b> ' + player.weap.soulHitChance + '%</p>'+
+                '<p><b>Crit Chance:</b> ' + player.weap.critChance + '%</p>'+
+                '<p id="SCC"><b>Soul Crit Chance:</b> ' + player.weap.soulCritChance + '%</p>'+
+                '<p id="BC"><b>Bleed Chance:</b> ' + player.weap.bleedChance + '%</p>'+
+                '<p id="SC"><b>Stun Chance:</b> ' + player.weap.stunChance + '%</p>'
+            );
+            // Remove Stats That Are 0
+            if (player.cloth.damageReduction == 0) {$("#DR").hide();}
+            if (player.cloth.mirrorDamageMult == 0) {$("#MD").hide();}
+            if (player.cloth.multiHitChance == 0) {$("#MHC").hide();}
+            if (player.weap.soulHitChance == 0) {$("#SHC").hide();}
+            if (player.weap.soulCritChance == 0) {$("#SCC").hide();}
+            if (player.weap.bleedChance == 0) {$("#BC").hide();}
+            if (player.weap.stunChance == 0) {$("#SC").hide();}
+            break;
+        case "Health":
+            // Show Health Breakdown
+            $("#MenuContent").html(
+                '<h3>Health:</h3>'+
+                '<p><b>Character:</b> ' + player.char.healthMax / player.cloth.healthMult + '</p>'+
+                '<p><b>Clothing:</b> ' + player.cloth.healthMult + 'x</p>'+
+                '<p><b>Total:</b> ' + Math.floor(player.char.healthMax) + '</p>'
             );
             break;
+        case "Damage":
+            // Show Damage Breakdown
+            $("#MenuContent").html(
+                '<h3>Damage:</h3>'+
+                '<p><b>Character:</b> ' + player.char.damage + '</p>'+
+                '<p><b>Weapon:</b> ' + player.weap.damageMult + 'x</p>'+
+                '<p><b>Total:</b> ' + player.char.damage * player.weap.damageMult + '</p>'
+            );
+            break;
+        case "Dodge Chance":
+            // Show Dodge Chance Breakdown
+            $("#MenuContent").html(
+                '<h3>Dodge Chance:</h3>'+
+                '<p><b>Character:</b> ' + player.char.dodgeChance + '%</p>'+
+                '<p><b>Clothing:</b> ' + player.cloth.dodgeChanceMult + 'x</p>'+
+                '<p><b>Weapon:</b> ' + player.weap.dodgeChanceMult + 'x</p>'+
+                '<p><b>Total:</b> ' + player.char.dodgeChance * player.cloth.dodgeChanceMult * player.weap.dodgeChanceMult + '%</p>'
+            );
+            break;
+    }
+});
+
+// Marchant Man Menu
+$(document).on("change", "#UpgradeSelector", function(){
+    switch ($("#UpgradeSelector").val()) {
+        case "Character":
+            // Show Available Character Upgrades
+            $("#MenuContent").html(
+                '<h3>Character:</h3>'+
+                '<p>Unimplemented</p>'
+            );
+            // Set #InteractBtns
+            $("#InteractBtns").html(
+                '<button id="CharUpgradeBtn">-</button>'
+            );
+            break;
+        case "Clothing":
+            // Show Available Clothing Upgrades
+            $("#MenuContent").html(
+                '<h3>Clothing:</h3>'+
+                '<p>Unimplemented</p>'
+            );
+            // Set #InteractBtns
+            $("#InteractBtns").html(
+                '<button id="ClothUpgradeBtn">-</button>'
+            );
+            break;
+        case "Weapon":
+            // Show Available Weapon Upgrades
+            $("#MenuContent").html(
+                '<h3>Weapon:</h3>'+
+                '<p><b>Rank Up:</b> 50 Currency</p>'+
+                '<p><b>Reroll Prefix:</b> 100 Currency</p>'
+            );
+            // Set #InteractBtns
+            $("#InteractBtns").html(
+                '<button id="WeapUpgradeBtn">Rank Up</button>'+
+                '<button id="WeapPrefixRerollBtn">Reroll Prefix</button>'
+            );
+            break;
+    }
+});
+
+// Keyboard Interaction
+$(document).keypress(function(){
+    if (event.key == "-") {
+        $("select").focus();
     }
 });

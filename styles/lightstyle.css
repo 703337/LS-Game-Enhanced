@@ -115,6 +115,9 @@ select {
 select:hover {
     background-color: rgb(215, 215, 215);
 }
+select:focus {
+    background-color: rgb(215, 215, 215);
+}
 select:active {
     background-color: rgb(230, 230, 230);
     transition: none;

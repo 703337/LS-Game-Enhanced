@@ -23,7 +23,7 @@ $(function(){
                 $("#MenuContent").html(
                     '<h3>Base Stats:</h3>'+
                     '<p><b>Health:</b> 100</p>'+
-                    '<p><b>Damage:</b> 15</p>'+
+                    '<p><b>Damage:</b> 10</p>'+
                     '<p><b>Dodge Chance:</b> 5%</p>'+
                     '<h3>Curse: Painfully Average</h3>'+
                     '<p>Take a small amount of damage when missing.</p>'
@@ -33,6 +33,12 @@ $(function(){
                     '<button id="SelectBtn">Select</button>'
                 );
                 break;
+        }
+    });
+    // Trigger via keypress
+    $(document).keypress(function(){
+        if (event.key == "1") {
+            $("#MainBtn1").click();
         }
     });
 
@@ -67,6 +73,12 @@ $(function(){
                 break;
         }
     });
+    // Trigger via keypress
+    $(document).keypress(function(){
+        if (event.key == "2") {
+            $("#MainBtn2").click();
+        }
+    });
 
     //Behaviour for #MainBtn3
     $("#MainBtn3").click(function(){
@@ -80,10 +92,6 @@ $(function(){
                 // Set #SubMenuBtns
                 $("#SubMenuBtns").html(
                     '<select name="weapons" id="WeapSelector">'+
-                    '<option value="Fists">Fists</option>'+
-                    '<option value="Pocket Knife">Pocket Knife</option>'+
-                    '<option value="Cleaver">Cleaver</option>'+
-                    '<option value="Butter Knife">ButterKnife</option>'+
                     '<option value="Fists">Fists</option>'+
                     '<option value="Pocket Knife">Pocket Knife</option>'+
                     '<option value="Cleaver">Cleaver</option>'+
@@ -103,6 +111,53 @@ $(function(){
                     '<button id="SelectBtn">Select</button>'
                 );
                 break;
+            case "Stats":
+                // Stat Information Menu
+                // Set #MenuHeader and #MenuDescription Content
+                $("#MenuHeader").html('Stats');
+                $("#MenuDescription").html('View your current stats and a breakdown of certain stats. Stats equal to 0 are not shown.<br><b>' + player.char.name + ' - ' + player.cloth.name + ' - ' + player.weap.name + '</b>');
+                // Set #SubMenuBtns
+                $("#SubMenuBtns").html(
+                    '<select name="stats" id="StatView">'+
+                    '<option value="All">All Stats</option>'+
+                    '<option value="Health">Health</option>'+
+                    '<option value="Damage">Damage</option>'+
+                    '<option value="Dodge Chance">Dodge Chance</option>'+
+                    '</select>'
+                );
+                // Set #MenuContent
+                $("#MenuContent").html(
+                    '<h3>Stats:</h3>'+
+                    '<p><b>Health:</b> ' + Math.floor(player.char.healthMax) + '</p>'+
+                    '<p id="DR"><b>Damage Reduction:</b> ' + player.cloth.damageReduction * 100 + '%</p>'+
+                    '<p><b>Damage:</b> ' + player.char.damage * player.weap.damageMult + '</p>'+
+                    '<p id="MD"><b>Mirror Damage:</b> ' + player.cloth.mirrorDamageMult * 100 + '%</p>'+
+                    '<p><b>Dodge Chance:</b> ' + player.char.dodgeChance * player.cloth.dodgeChanceMult * player.weap.dodgeChanceMult + '%</p>'+
+                    '<p><b>Hit Chance:</b> ' + player.weap.hitChance + '%</p>'+
+                    '<p id="MHC"><b>Multi Hit Chance:</b> ' + player.cloth.multiHitChance + '%</p>'+
+                    '<p id="SHC"><b>Soul Hit Chance:</b> ' + player.weap.soulHitChance + '%</p>'+
+                    '<p><b>Crit Chance:</b> ' + player.weap.critChance + '%</p>'+
+                    '<p id="SCC"><b>Soul Crit Chance:</b> ' + player.weap.soulCritChance + '%</p>'+
+                    '<p id="BC"><b>Bleed Chance:</b> ' + player.weap.bleedChance + '%</p>'+
+                    '<p id="SC"><b>Stun Chance:</b> ' + player.weap.stunChance + '%</p>'
+                );
+                // Set #InteractBtns
+                $("#InteractBtns").html('');
+                // Remove Stats That Are 0
+                if (player.cloth.damageReduction == 0) {$("#DR").hide();}
+                if (player.cloth.mirrorDamageMult == 0) {$("#MD").hide();}
+                if (player.cloth.multiHitChance == 0) {$("#MHC").hide();}
+                if (player.weap.soulHitChance == 0) {$("#SHC").hide();}
+                if (player.weap.soulCritChance == 0) {$("#SCC").hide();}
+                if (player.weap.bleedChance == 0) {$("#BC").hide();}
+                if (player.weap.stunChance == 0) {$("#SC").hide();}
+                break;
+        }
+    });
+    // Trigger via keypress
+    $(document).keypress(function(){
+        if (event.key == "3") {
+            $("#MainBtn3").click();
         }
     });
 
@@ -144,6 +199,60 @@ $(function(){
                     '<button id="StartBtn">Start</button>'
                 );
                 break;
+            // Merchant Man Menu
+            case "Merchant":
+                // Roll a random line of dialogue for #MenuDescription
+                dialogueRoll = Math.floor((Math.random() * 7) + 1);
+                switch (dialogueRoll) {
+                    case 1:
+                        merchantDialogue = "Buy something!";
+                        break;
+                    case 2:
+                        merchantDialogue = "Got coins?";
+                        break;
+                    case 3:
+                        merchantDialogue = "Better weapons means better killing!";
+                        break;
+                    case 4:
+                        merchantDialogue = "Cleaner clothes means cleaner killing!";
+                        break;
+                    case 5:
+                        merchantDialogue = "You are weak. Buy something from me to be strong!";
+                        break;
+                    case 6:
+                        merchantDialogue = "Have you killed them all? No? Then keep buying!";
+                        break;
+                    case 7:
+                        merchantDialogue = "Something's wrong.";
+                        break;
+                }
+                // Set #MenuHeader and #MenuDescription Content
+                $("#MenuHeader").html('Merchant');
+                $("#MenuDescription").html(merchantDialogue);
+                // Set #SubMenuBtns
+                $("#SubMenuBtns").html(
+                    '<select name="upgrade" id="UpgradeSelector">'+
+                    '<option value="Character">Character</option>'+
+                    '<option value="Clothing">Clothing</option>'+
+                    '<option value="Weapon">Weapon</option>'+
+                    '</select>'
+                );
+                // Set #MenuContent
+                $("#MenuContent").html(
+                    '<h3>Character:</h3>'+
+                    '<p>Unimplemented</p>'
+                );
+                // Set #InteractBtns
+                $("#InteractBtns").html(
+                    '<button id="CharUpgradeBtn">-</button>'
+                );
+                break;
+        }
+    });
+    // Trigger via keypress
+    $(document).keypress(function(){
+        if (event.key == "4") {
+            $("#MainBtn4").click();
         }
     });
 });
