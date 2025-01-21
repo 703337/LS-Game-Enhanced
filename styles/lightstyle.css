@@ -64,6 +64,11 @@ p {
 }
 
 /* Interactive Elements */
+/* Default Link Styles */
+a {
+    color: blue;
+}
+
 /* Default Button Styles */
 button {
    background-color: rgb(240, 240, 240);

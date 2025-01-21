@@ -115,7 +115,7 @@ $(function(){
                 // Stat Information Menu
                 // Set #MenuHeader and #MenuDescription Content
                 $("#MenuHeader").html('Stats');
-                $("#MenuDescription").html('View your current stats and a breakdown of certain stats. Stats equal to 0 are not shown.<br><b>' + player.char.name + ' - ' + player.cloth.name + ' - ' + player.weap.name + '</b>');
+                $("#MenuDescription").html('View your current stats and a breakdown of certain stats. <br>Stats equal to 0 are not shown.<br>&nbsp;<br><b>' + player.char.name + ' - ' + player.cloth.name + ' - ' + player.weap.name + '</b>');
                 // Set #SubMenuBtns
                 $("#SubMenuBtns").html(
                     '<select name="stats" id="StatView">'+
@@ -253,6 +253,79 @@ $(function(){
     $(document).keypress(function(){
         if (event.key == "4") {
             $("#MainBtn4").click();
+        }
+    });
+
+    // 
+    // The buttons below, while not within the <nav> element, are navigational buttons for the site.
+    // 
+
+    // Behaviour for #UpdateLogBtn
+    $("#BugReportBtn").click(function(){
+        // Open bug reporting page on Github.com
+        window.open('https://github.com/703337/LS-Game-Enhanced/issues');
+    });
+    // Trigger via keypress
+    $(document).keypress(function(){
+        if (event.key == "6") {
+            $("#BugReportBtn").click();
+        }
+    });
+
+    // Behaviour for #UpdateLogBtn
+    $("#UpdateLogBtn").click(function(){
+        // Set #MenuHeader and #MenuDescription Content
+        $("#MenuHeader").html('What\'s New?');
+        $("#MenuDescription").html('See what\'s new in the latest update.');
+        // Set #SubMenuBtns
+        $("#SubMenuBtns").html(
+            ''
+        );
+        // Set #MenuContent
+        $("#MenuContent").html(
+            '<ul style="text-align: left;">'+
+            '<li>Added the "What\'s New?" menu.</li>'+
+            '<li>Added the "Settings" menu.</li>'+
+            '<li>Added dark mode.</li>'+
+            '<li>Removed an old duplicated file.</li>'+
+            '</ul>'+
+            '<p><b>Last Updated 21/01/2025</b></p>'
+        );
+        // Set Interact Buttons
+        $("#InteractBtns").html(
+            ''
+        );
+    });
+    // Trigger via keypress
+    $(document).keypress(function(){
+        if (event.key == "7") {
+            $("#UpdateLogBtn").click();
+        }
+    });
+
+    // Behaviour for #SettingsBtn
+    $("#SettingsBtn").click(function(){
+        // Set #MenuHeader and #MenuDescription Content
+        $("#MenuHeader").html('Settings');
+        $("#MenuDescription").html('Adjust some settings or delete data.');
+        // Set #SubMenuBtns
+        $("#SubMenuBtns").html(
+            '<button id="GeneralSettingsBtn">General</button>'+
+            '<button id="DataSettingsBtn">Data</button>'
+        );
+        // Set Menu Content
+        $("#MenuContent").html(
+            '<p>Display Mode: <button id="GeneralSettingsStyleToggleBtn">' + settings.displayMode + '</button></p>'
+        );
+        // Set Interact Buttons
+        $("#InteractBtns").html(
+            ''
+        );
+    });
+    // Trigger via keypress
+    $(document).keypress(function(){
+        if (event.key == "8") {
+            $("#SettingsBtn").click();
         }
     });
 });

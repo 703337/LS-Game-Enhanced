@@ -131,22 +131,22 @@ function setStats(selection) {
 // Game Start
 $(document).on("click", "#StartBtn", function(){
     // Set Save Data
-    localStorage.setItem("playerSaveData", JSON.stringify(player));
-    localStorage.setItem("saveData", "yep");
+    localStorage.setItem('playerSaveData', JSON.stringify(player));
+    localStorage.setItem('saveData', 'yep');
     // Set New Nav Buttons Text
-    $("#MainBtn1").html("Fight");
-    $("#MainBtn2").html("Story");
-    $("#MainBtn3").html("Stats");
-    $("#MainBtn4").html("Merchant");
+    $("#MainBtn1").html('Fight');
+    $("#MainBtn2").html('Story');
+    $("#MainBtn3").html('Stats');
+    $("#MainBtn4").html('Merchant');
     // Set Menu Name and Description
-    $("#MenuHeader").html("Data saved!");
-    $("#MenuDescription").html("Your data is only available on your current device and is stored in the browser's local storage.");
+    $("#MenuHeader").html('Data saved!');
+    $("#MenuDescription").html('Your data is only available on your current device and is stored in the browser\'s local storage.');
     // Set Submenu Buttons
-    $("#SubMenuBtns").html("");
+    $("#SubMenuBtns").html('');
     // Set Menu Content
-    $("#MenuContent").html("All menus currently unavailable.");
+    $("#MenuContent").html('All menus currently unavailable.');
     // Set Interact Buttons
-    $("#InteractBtns").html("");
+    $("#InteractBtns").html('');
 });
 // Trigger via keypress
 $(document).keypress(function(){
@@ -155,7 +155,46 @@ $(document).keypress(function(){
         $("#StartBtn").click();
         // Alert player to successful interaction for selection menus
         if ($("#SelectBtn").html() == "Select") {
-            alert("Selection Successful")
+            alert('Selection Successful')
         }
     }
+});
+
+// General Settings
+$(document).on("click", "#GeneralSettingsBtn", function(){
+    // Set Menu Content
+    $("#MenuContent").html(
+        '<p>Display Mode: <button id="GeneralSettingsStyleToggleBtn">' + settings.displayMode + '</button></p>'
+    );
+    // Set Interact Buttons
+    $("#InteractBtns").html('');
+});
+$(document).on("click", "#GeneralSettingsStyleToggleBtn", function(){
+    // Change site style (displayMode) between Light and Dark and save the change
+    switch (settings.displayMode) {
+        // Set Dark Style
+        case "Light":
+            settings.displayMode = "Dark";
+            $("#Stylesheet").attr("href", "styles/darkstyle.css");
+            localStorage.setItem('settingsData', JSON.stringify(settings));
+            break;
+        //  Set Light Style
+        case "Dark":
+            settings.displayMode = "Light";
+            $("#Stylesheet").attr("href", "styles/lightstyle.css");
+            localStorage.setItem('settingsData', JSON.stringify(settings));
+            break;
+    }
+    // Set Menu Content
+    $("#MenuContent").html(
+        '<p>Display Mode: <button id="GeneralSettingsStyleToggleBtn">' + settings.displayMode + '</button></p>'
+    );
+});
+
+// Data Settings
+$(document).on("click", "#DataSettingsBtn", function(){
+    // Set Menu Content
+    $("#MenuContent").html(
+        'Data settings go here.'
+    );
 });
