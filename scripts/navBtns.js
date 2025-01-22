@@ -115,7 +115,7 @@ $(function(){
                 // Stat Information Menu
                 // Set #MenuHeader and #MenuDescription Content
                 $("#MenuHeader").html('Stats');
-                $("#MenuDescription").html('View your current stats and a breakdown of certain stats. <br>Stats equal to 0 are not shown.<br>&nbsp;<br><b>' + player.char.name + ' - ' + player.cloth.name + ' - ' + player.weap.name + '</b>');
+                $("#MenuDescription").html('View your current stats and a breakdown of certain stats. <br>Stats equal to 0 are not shown.<br>&nbsp;<br><b>' + player.char.name + ' - ' + player.cloth.name + ' - ' + player.weap.prefix + " " + player.weap.name + '</b>');
                 // Set #SubMenuBtns
                 $("#SubMenuBtns").html(
                     '<select name="stats" id="StatView">'+
@@ -139,7 +139,9 @@ $(function(){
                     '<p><b>Crit Chance:</b> ' + player.weap.critChance + '%</p>'+
                     '<p id="SCC"><b>Soul Crit Chance:</b> ' + player.weap.soulCritChance + '%</p>'+
                     '<p id="BC"><b>Bleed Chance:</b> ' + player.weap.bleedChance + '%</p>'+
-                    '<p id="SC"><b>Stun Chance:</b> ' + player.weap.stunChance + '%</p>'
+                    '<p id="SC"><b>Stun Chance:</b> ' + player.weap.stunChance + '%</p>'+
+                    '<p id="CBC"><b>Clothing Bleed Chance:</b> ' + player.cloth.bleedChance + '%</p>'+
+                    '<p id="CSC"><b>Clothing Stun Chance:</b> ' + player.cloth.stunChance + '%</p>'
                 );
                 // Set #InteractBtns
                 $("#InteractBtns").html('');
@@ -151,6 +153,8 @@ $(function(){
                 if (player.weap.soulCritChance == 0) {$("#SCC").hide();}
                 if (player.weap.bleedChance == 0) {$("#BC").hide();}
                 if (player.weap.stunChance == 0) {$("#SC").hide();}
+                if (player.weap.bleedChance == 0) {$("#CBC").hide();}
+                if (player.weap.stunChance == 0) {$("#CSC").hide();}
                 break;
         }
     });
@@ -202,7 +206,7 @@ $(function(){
             // Merchant Man Menu
             case "Merchant":
                 // Roll a random line of dialogue for #MenuDescription
-                dialogueRoll = Math.floor((Math.random() * 7) + 1);
+                dialogueRoll = Math.floor(Math.random() * 8);
                 switch (dialogueRoll) {
                     case 1:
                         merchantDialogue = "Buy something!";
@@ -284,12 +288,14 @@ $(function(){
         // Set #MenuContent
         $("#MenuContent").html(
             '<ul style="text-align: left;">'+
-            '<li>Added the "What\'s New?" menu.</li>'+
-            '<li>Added the "Settings" menu.</li>'+
-            '<li>Added dark mode.</li>'+
-            '<li>Removed an old duplicated file.</li>'+
+            '<li>Added weapon and clothing prefixes. Prefixes currently have no functionality.</li>'+
+            '<li>Added some error codes related to the prefix rolling function.</li>'+
+            '<li>Removed an unnecessary variable related to save data.</li>'+
+            '<li>Clothing can now have bleed and stun chances.</li>'+
+            '<li>Added an option to clear player data in the data settings.</li>'+
+            '<li>Moved a message related to currently available menus to the correct location.</li>'+
             '</ul>'+
-            '<p><b>Last Updated 21/01/2025</b></p>'
+            '<p><b>Last Updated 22/01/2025</b></p>'
         );
         // Set Interact Buttons
         $("#InteractBtns").html(

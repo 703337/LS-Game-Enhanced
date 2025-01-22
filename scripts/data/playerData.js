@@ -19,11 +19,9 @@ $(function(){
         }
     }
     // Check for saved player data
-    saveData = localStorage.getItem("saveData");
+    player = localStorage.getItem("playerSaveData");
     // Load saved player data (if any) and apply changes
-    if (saveData != null) {
-        // Load Saved Data
-        player = JSON.parse(localStorage.getItem("playerSaveData"));
+    if (player != null) {
         // Set Nav Buttons Text
         $("#MainBtn1").html("Fight");
         $("#MainBtn2").html("Story");
@@ -31,7 +29,7 @@ $(function(){
         $("#MainBtn4").html("Merchant");
         // Set Menu Name and Description
         $("#MenuHeader").html("Welcome Back to LS Game Enhanced!");
-        $("#MenuDescription").html("Select a menu to continue.");
+        $("#MenuDescription").html("Select a menu to continue. Only Stats and Merchant are available, although Merchant's functionality is currently unimplemented.");
         // Set Submenu Buttons
         $("#SubMenuBtns").html("");
         // Set Menu Content
@@ -53,17 +51,21 @@ $(function(){
             },
             // Clothing
             cloth: {
-                name: "Whitespace",        
+                name: "Whitespace",
+                prefix: "",
                 healthMult: 1,
                 damageReduction: 0.1,
                 dodgeChanceMult: 1.1,
                 multiHitChance: 0,
                 mirrorDamageMult: 0,
-                blockDamageChance: 0
+                blockDamageChance: 0,
+                bleedChance: 0,
+                stunChance: 0
             },
             // Weapon
             weap: {
                 name: "Maw",
+                prefix: "",
                 damageMult: 1,
                 dodgeChanceMult: 1,
                 hitChance: 90,

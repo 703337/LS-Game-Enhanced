@@ -84,6 +84,7 @@ $(document).on("change", "#ClothSelector", function(){
                 '<h3>Stats:</h3>'+
                 '<p><b>Damage Reduction:</b> 5%</p>'+
                 '<p><b>Dodge Chance:</b> 1x</p>'+
+                '<p><b>Stun Chance:</b> 5%</p>'+
                 '<h3>Curse: Flawed Design</h3>'+
                 '<p>50% of damage taken is dealt to enemies, but blocking can damage you.</p>'
             );
@@ -179,7 +180,9 @@ $(document).on("change", "#InfoSelector", function(){
                 '<p><b>Crit Chance:</b> ' + player.weap.critChance + '%</p>'+
                 '<p id="SCC"><b>Soul Crit Chance:</b> ' + player.weap.soulCritChance + '%</p>'+
                 '<p id="BC"><b>Bleed Chance:</b> ' + player.weap.bleedChance + '%</p>'+
-                '<p id="SC"><b>Stun Chance:</b> ' + player.weap.stunChance + '%</p>'
+                '<p id="SC"><b>Stun Chance:</b> ' + player.weap.stunChance + '%</p>'+
+                '<p id="CBC"><b>Clothing Bleed Chance:</b> ' + player.cloth.bleedChance + '%</p>'+
+                '<p id="CSC"><b>Clothing Stun Chance:</b> ' + player.cloth.stunChance + '%</p>'
             );
             // Remove Stats That Are 0
             if (player.cloth.mirrorDamageMult == 0) {$("#MD").hide();}
@@ -188,6 +191,8 @@ $(document).on("change", "#InfoSelector", function(){
             if (player.weap.soulCritChance == 0) {$("#SCC").hide();}
             if (player.weap.bleedChance == 0) {$("#BC").hide();}
             if (player.weap.stunChance == 0) {$("#SC").hide();}
+            if (player.cloth.bleedChance == 0) {$("#CBC").hide();}
+            if (player.cloth.stunChance == 0) {$("#CSC").hide();}
             break;
     }
 });
@@ -210,7 +215,9 @@ $(document).on("change", "#StatView", function(){
                 '<p><b>Crit Chance:</b> ' + player.weap.critChance + '%</p>'+
                 '<p id="SCC"><b>Soul Crit Chance:</b> ' + player.weap.soulCritChance + '%</p>'+
                 '<p id="BC"><b>Bleed Chance:</b> ' + player.weap.bleedChance + '%</p>'+
-                '<p id="SC"><b>Stun Chance:</b> ' + player.weap.stunChance + '%</p>'
+                '<p id="SC"><b>Stun Chance:</b> ' + player.weap.stunChance + '%</p>'+
+                '<p id="CBC"><b>Clothing Bleed Chance:</b> ' + player.cloth.bleedChance + '%</p>'+
+                '<p id="CSC"><b>Clothing Stun Chance:</b> ' + player.cloth.stunChance + '%</p>'
             );
             // Remove Stats That Are 0
             if (player.cloth.damageReduction == 0) {$("#DR").hide();}
@@ -220,6 +227,8 @@ $(document).on("change", "#StatView", function(){
             if (player.weap.soulCritChance == 0) {$("#SCC").hide();}
             if (player.weap.bleedChance == 0) {$("#BC").hide();}
             if (player.weap.stunChance == 0) {$("#SC").hide();}
+            if (player.cloth.bleedChance == 0) {$("#CBC").hide();}
+            if (player.cloth.stunChance == 0) {$("#CSC").hide();}
             break;
         case "Health":
             // Show Health Breakdown

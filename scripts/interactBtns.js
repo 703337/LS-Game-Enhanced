@@ -52,6 +52,8 @@ function setStats(selection) {
             player.cloth.multiHitChance = 0;
             player.cloth.mirrorDamageMult = 0;
             player.cloth.blockDamageChance = 0;
+            player.cloth.bleedChance = 0;
+            player.cloth.stunChance = 0;
             break;
         case "Thieves' Cloak":
             player.cloth.healthMult = 1;
@@ -60,6 +62,8 @@ function setStats(selection) {
             player.cloth.multiHitChance = 0.05;
             player.cloth.mirrorDamageMult = 0;
             player.cloth.blockDamageChance = 0;
+            player.cloth.bleedChance = 0;
+            player.cloth.stunChance = 0;
             break;
         case "Chefswear":
             player.cloth.healthMult = 1.1;
@@ -68,6 +72,8 @@ function setStats(selection) {
             player.cloth.multiHitChance = 0;
             player.cloth.mirrorDamageMult = 0;
             player.cloth.blockDamageChance = 0;
+            player.cloth.bleedChance = 0;
+            player.cloth.stunChance = 0;
             break;
         case "Shock Plating":
             player.cloth.healthMult = 1;
@@ -76,6 +82,8 @@ function setStats(selection) {
             player.cloth.multiHitChance = 0;
             player.cloth.mirrorDamageMult = 0.5;
             player.cloth.blockDamageChance = 3;
+            player.cloth.bleedChance = 0;
+            player.cloth.stunChance = 5;
             break;
         // Weapons
         case "Fists":
@@ -130,9 +138,16 @@ function setStats(selection) {
 
 // Game Start
 $(document).on("click", "#StartBtn", function(){
+    // Roll Prefixes
+    rollPrefix("weapon", player.weap.name);
+    rollPrefix("clothing", player.cloth.name);
+    // Prevent function execution if an error occurs
+    switch (error) {
+        case "prefixRoll.js: InvalidWeap", "prefixRoll.js: InvalidCloth":
+            return;
+    }
     // Set Save Data
     localStorage.setItem('playerSaveData', JSON.stringify(player));
-    localStorage.setItem('saveData', 'yep');
     // Set New Nav Buttons Text
     $("#MainBtn1").html('Fight');
     $("#MainBtn2").html('Story');
@@ -195,6 +210,16 @@ $(document).on("click", "#GeneralSettingsStyleToggleBtn", function(){
 $(document).on("click", "#DataSettingsBtn", function(){
     // Set Menu Content
     $("#MenuContent").html(
-        'Data settings go here.'
+        '<p>Player Data: <button id="DataSettingsPlayerDataBtn">Clear</button></p>'
     );
+});
+$(document).on("click", "#DataSettingsPlayerDataBtn", function(){
+    // Ask the player to confirm their decision
+    confirm("Are you sure you want to do this?");
+    // Act upon player choice if player choice is "Ok"
+    if (confirm) {
+        // Delete player save data and reload the page
+        localStorage.removeItem("playerSaveData");
+        location.reload();
+    }
 });

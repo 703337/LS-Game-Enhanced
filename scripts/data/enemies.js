@@ -1,14 +1,14 @@
 // Function for rolling an enemy
 function rollEnemy() {
     // Roll for enemy type (Common, Uncommon, Rare, Very Rare, Secret)
-    rollType = Math.floor((Math.random() * 100) + 1);
+    rollType = Math.floor(Math.random() * 101);
     switch (player.area) {
         // Test Area
         case "Test":
             // Common: 50%
             if (rollType <= 50) {
                 // Roll for enemy
-                roll = Math.floor((Math.random() * 2) + 1);
+                roll = Math.floor(Math.random() * 3);
                 switch (roll) {
                     // Cube
                     case 1:
