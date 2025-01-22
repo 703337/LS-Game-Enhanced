@@ -25,12 +25,14 @@
     <link rel="stylesheet" href="styles/screensize.css">
 
     <!-- Load Scripts -->
-    <script src="scripts/jquery.js"></script>
+    <script src="scripts/misc/jquery.js"></script>
+    <script src="scripts/misc/audio.js"></script>
+    <script src="scripts/data/enemies.js"></script>
     <script src="scripts/data/playerData.js"></script>
-    <script src="scripts/navBtns.js"></script>
-    <script src="scripts/select.js"></script>
-    <script src="scripts/interactBtns.js"></script>
-    <script src="scripts/prefixRoll.js"></script>
+    <script src="scripts/ui/navBtns.js"></script>
+    <script src="scripts/ui/select.js"></script>
+    <script src="scripts/ui/interactBtns.js"></script>
+    <script src="scripts/data/prefixRoll.js"></script>
 </head>
 
 
@@ -39,6 +41,10 @@
     <!-- Header Content -->
     <header class="fullSpan">
         <h1>LS Game Enhanced</h1>
+
+        <!-- Audio Players -->
+        <audio id="MusicPlayer" src="" type="audio/mp3"></audio>
+        <audio id="SFXPlayer" src="" type="audio/wav"></audio>
     </header>
 
     <!-- Navigation Buttons -->

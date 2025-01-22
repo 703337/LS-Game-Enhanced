@@ -6,7 +6,7 @@
 // Prevent code from running before full page load
 $(function(){
     // Check for settings data
-    settingsData = localStorage.getItem("settingsData");
+    settingsData = JSON.parse(localStorage.getItem("settingsData"));
 
     // Load saved settings data (if any) and apply changes
     if (settingsData != null) {
@@ -26,7 +26,7 @@ $(function(){
 
 
     // Check for saved player data
-    player = localStorage.getItem("playerSaveData");
+    player = JSON.parse(localStorage.getItem("playerSaveData"));
     
     // Load saved player data (if any) and apply changes
     if (player != null) {

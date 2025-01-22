@@ -331,14 +331,11 @@ $(function(){
         // Set #MenuContent
         $("#MenuContent").html(
             '<ul style="text-align: left;">'+
-            '<li>Added weapon and clothing prefixes. Prefixes currently have no functionality.</li>'+
-            '<li>Added some error codes related to the prefix rolling function.</li>'+
-            '<li>Removed an unnecessary variable related to save data.</li>'+
-            '<li>Clothing can now have bleed and stun chances.</li>'+
-            '<li>Added an option to clear player data in the data settings.</li>'+
-            '<li>Moved a message related to currently available menus to the correct location.</li>'+
+            '<li>Fixed an issue that caused player save data to be unusable when reloading/returning to the site.</li>'+
+            '<li>Started adding support for audio. Nothing triggers audio currently.</li>'+
+            '<li>Organised files.</li>'+
             '</ul>'+
-            '<p><b>Last Updated 22/01/2025</b></p>'
+            '<p><b>Last Updated 23/01/2025</b></p>'
         );
 
         // Set Interact Buttons
