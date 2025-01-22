@@ -1,10 +1,15 @@
 // All code for rolling weapon/clothing prefixes goes here
+
+
+
 // Roll prefix for weapons/clothing (type) and specify the desired weapon/clothing (name)
 function rollPrefix(type, name) {
     // Clear/Create Error Variable
     error = "Nothing to report."
+
     // roll a number from 1 to 1000 (0.1 to 100.0) to set a prefixs
     var roll = Math.floor(Math.random() * 1001);
+
     // Check if rolling for weapons or clothing
     switch (type) {
         // Roll For Weapons
@@ -16,42 +21,48 @@ function rollPrefix(type, name) {
                         player.weap.prefix = "Bloody";
                         // STAT ALTERATIONS HERE
                     } 
-                    break;
+                break;
+
                 // Fists
                 case "Fists":
                     if (roll <= 500) {
                         player.weap.prefix = "Bloody";
                         // STAT ALTERATIONS HERE
                     } 
-                    break;
+                break;
+
                 // Pocket Knife
                 case "Pocket Knife":
                     if (roll <= 500) {
                         player.weap.prefix = "Bloody";
                         // STAT ALTERATIONS HERE
                     } 
-                    break;
+                break;
+
                 // Cleaver
                 case "Cleaver":
                     if (roll <= 500) {
                         player.weap.prefix = "Bloody";
                         // STAT ALTERATIONS HERE
                     } 
-                    break;
+                break;
+
                 // Butter Knife
                 case "Butter Knife":
                     if (roll <= 500) {
                         player.weap.prefix = "Sticky";
                         // STAT ALTERATIONS HERE
                     } 
-                    break;
+                break;
+
                 // Alert the player to an issue with this function
                 default:
                     alert("Error: Invalid weapon name.");
-                    error = "prefixRoll.js: InvalidWeap"
-                    break;
+                    error = "prefixRoll.js: InvalidWeap";
+                break;
             }
-            break;
+        break;
+
         // Roll For Clothing
         case "clothing":
             switch (name) {
@@ -61,45 +72,51 @@ function rollPrefix(type, name) {
                         player.cloth.prefix = "Blinding";
                         // STAT ALTERATIONS HERE
                     } 
-                    break;
+                break;
+
                 // Nude
                 case "Nude":
                     if (roll <= 500) {
                         player.cloth.prefix = "Stunningly";
                         // STAT ALTERATIONS HERE
                     } 
-                    break;
+                break;
+
                 // Thieves' Cloak
                 case "Thieves' Cloak":
                     if (roll <= 500) {
                         player.cloth.prefix = "Shadowy";
                         // STAT ALTERATIONS HERE
                     } 
-                    break;
+                break;
+
                 // Chefswear
                 case "Chefswear":
                     if (roll <= 500) {
                         player.cloth.prefix = "Reinforced";
                         // STAT ALTERATIONS HERE
                     } 
-                    break;
+                break;
+
                 // Chefswear
                 case "Chefswear":
                     if (roll <= 500) {
                         player.cloth.prefix = "Shocking Shock Plate";
                         // STAT ALTERATIONS HERE
                     } 
-                    break;
+                break;
+
                 // Alert the player to an issue with this function
                 default:
                     alert("Error: Invalid clothing name.");
-                    error = "prefixRoll.js: InvalidCloth"
-                    break;
+                    error = "prefixRoll.js: InvalidCloth";
+                break;
             }
-            break;
+        break;
+
         // Alert the player to an issue with this function
         default:
             alert("Error: Invalid roll type.");
-            break;
+        break;
     }
 }

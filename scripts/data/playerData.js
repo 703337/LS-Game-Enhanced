@@ -1,9 +1,13 @@
 // All code for player and settings data goes here
 // Code for settings data is included due to previously being contained within the player data
+
+
+
 // Prevent code from running before full page load
 $(function(){
     // Check for settings data
     settingsData = localStorage.getItem("settingsData");
+
     // Load saved settings data (if any) and apply changes
     if (settingsData != null) {
         // Load Saved Data
@@ -18,8 +22,12 @@ $(function(){
             displayMode: "Light"
         }
     }
+
+
+
     // Check for saved player data
     player = localStorage.getItem("playerSaveData");
+    
     // Load saved player data (if any) and apply changes
     if (player != null) {
         // Set Nav Buttons Text
@@ -27,13 +35,17 @@ $(function(){
         $("#MainBtn2").html("Story");
         $("#MainBtn3").html("Stats");
         $("#MainBtn4").html("Merchant");
+
         // Set Menu Name and Description
         $("#MenuHeader").html("Welcome Back to LS Game Enhanced!");
         $("#MenuDescription").html("Select a menu to continue. Only Stats and Merchant are available, although Merchant's functionality is currently unimplemented.");
+
         // Set Submenu Buttons
         $("#SubMenuBtns").html("");
+
         // Set Menu Content
         $("#MenuContent").html("All menus currently unavailable.");
+
         // Set Interact Buttons
         $("#InteractBtns").html("");
     }

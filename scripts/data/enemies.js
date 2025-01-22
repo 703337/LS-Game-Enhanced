@@ -1,7 +1,13 @@
+// All code for enemies goes here
+
+
+
 // Function for rolling an enemy
 function rollEnemy() {
     // Roll for enemy type (Common, Uncommon, Rare, Very Rare, Secret)
     rollType = Math.floor(Math.random() * 101);
+
+    // Set enemy based on area
     switch (player.area) {
         // Test Area
         case "Test":
@@ -36,8 +42,11 @@ function rollEnemy() {
             else if (rollType <= 100) {
                 enemy = enemUltraPlaceholderier;
             }
+        break;
     }
 }
+
+
 
 // Enemy Values
 // Test Area
