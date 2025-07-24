@@ -2,7 +2,6 @@
 
 // TODO:
 // - Add error codes like with prefixRoll.js
-// - Test playing the same audio file while already playing
 // - Add TestSong.mp3 and make sure it works
 
 // Function to control audio of a specified type (music/sfx) and name with a specified action (for music)
